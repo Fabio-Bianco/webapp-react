@@ -1,0 +1,57 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f8f9fa;
+}
+
+#root, .app-layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.nav {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+footer {
+  background-color: black;
+  color: #666;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  text-align: center;
+  border-top: 1px solid #000;
+}
