@@ -1,10 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate, useLocation, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./Header.css";
 
 export default function Header() {
+  const [searchParams] = useSearchParams();
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const currentQuery = searchParams.get("search") || "";
+    setSearch(currentQuery);
+  }, [searchParams]);
 
   const handleChange = (e) => {
     const value = e.target.value;
