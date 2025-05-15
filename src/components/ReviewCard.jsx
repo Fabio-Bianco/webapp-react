@@ -25,9 +25,7 @@ export default function MovieCard({ data }) {
           Voto medio: <strong>{average_vote?.toFixed(1) || "N/A"}</strong>
         </p>
 
-        <Link to={`/movies/${id}`} className="btn btn-primary mt-auto fw-semibold">
-          Scheda Film
-        </Link>
+
       </div>
     </div>
   );
