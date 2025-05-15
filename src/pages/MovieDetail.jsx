@@ -10,14 +10,17 @@ import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
 export default function MovieDetail() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [error, setError] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
   const fetchMovie = async () => {
     try {
-      const res = await axios.get(`http://localhost:4000/movies/${id}`);
-      setMovie(res.data);
+      const response = await axios.get(`http://localhost:4000/movies/${id}`);
+      setMovie(response.data);
+      setError(null); // reset errore
     } catch (err) {
       console.error("Errore caricamento film:", err);
+      setError("Impossibile caricare i dati del film. Riprova più tardi.");
     }
   };
 
@@ -30,7 +33,17 @@ export default function MovieDetail() {
     setShowForm(false);
   };
 
-  if (!movie) return <p>Caricamento...</p>;
+  if (error) {
+    return <div className="alert alert-danger mt-4">{error}</div>;
+  }
+
+  if (!movie) {
+    return (
+      <div className="d-flex justify-content-center mt-5">
+        <div className="spinner-border text-primary" role="status" />
+      </div>
+    );
+  }
 
   return (
     <div className="container mt-4">
@@ -63,7 +76,10 @@ export default function MovieDetail() {
       )}
 
       {!showForm && (
-        <button className="btn btn-primary mt-3" onClick={() => setShowForm(true)}>
+        <button
+          className="btn btn-primary mt-3"
+          onClick={() => setShowForm(true)}
+        >
           Aggiungi recensione
         </button>
       )}
