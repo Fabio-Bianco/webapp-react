@@ -25,7 +25,7 @@ export default function MovieCard({ data }) {
 
   return (
     <div className="movie-card">
-      <div className="card h-100 shadow-sm border-0">
+      <div className="card">
         <img
           src={imageUrl}
           alt={`Locandina del film ${title}`}
@@ -36,13 +36,13 @@ export default function MovieCard({ data }) {
           }}
         />
 
-        <div className="card-body d-flex flex-column">
+        <div className="card-body">
           <h5 className="card-title">{title}</h5>
-          <p className="card-subtitle text-muted mb-2">
+          <p className="card-subtitle">
             🎬 {director} | {genre || "N/D"} | {release_year || "N/D"}
           </p>
 
-          <div className="mb-2">
+          <div className="stars">
             {[...Array(5)].map((_, i) => (
               <FontAwesomeIcon
                 key={i}
@@ -53,13 +53,13 @@ export default function MovieCard({ data }) {
             <span className="text-muted ms-2">({vote.toFixed(1)})</span>
           </div>
 
-          <p className="card-text flex-grow-1">
+          <p className="card-text">
             {abstract?.length > 100 ? abstract.slice(0, 100) + "..." : abstract}
           </p>
 
           <Link
             to={`/movies/${id}`}
-            className="btn btn-warning w-100 mt-auto text-white fw-semibold"
+            className="btn btn-warning text-white fw-semibold"
           >
             Scheda Film
           </Link>

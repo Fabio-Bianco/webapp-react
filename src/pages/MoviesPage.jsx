@@ -1,8 +1,8 @@
+// src/pages/MoviesPage.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../components/MovieCard.css";
 import MovieCard from "../components/MovieCard";
-
+import "../components/MovieCard.css";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -28,7 +28,7 @@ export default function MoviesPage() {
       {error ? (
         <div className="alert alert-danger">{error}</div>
       ) : (
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <div className="movie-grid">
           {movies.map((movie) => (
             <MovieCard key={movie.id} data={movie} />
           ))}
