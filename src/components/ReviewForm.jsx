@@ -32,22 +32,30 @@ export default function ReviewForm({ movieId, onReviewAdded }) {
     <div className="review-form-container">
       <div className="card review-form shadow-sm">
         <div className="card-body">
-          <h5 className="card-title mb-3 text-dark">Lascia una recensione</h5>
+          <h5 className="card-title mb-4">Lascia una recensione</h5>
+
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label className="form-label">Il tuo nome</label>
+              <label htmlFor="name" className="form-label">
+                Il tuo nome
+              </label>
               <input
+                type="text"
+                id="name"
                 className="form-control"
+                placeholder="Mario Rossi"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Mario Rossi"
                 required
               />
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Voto</label>
+              <label htmlFor="vote" className="form-label">
+                Voto
+              </label>
               <select
+                id="vote"
                 className="form-select"
                 value={vote}
                 onChange={(e) => setVote(e.target.value)}
@@ -60,18 +68,21 @@ export default function ReviewForm({ movieId, onReviewAdded }) {
               </select>
             </div>
 
-            <div className="mb-3">
-              <label className="form-label">Recensione</label>
+            <div className="mb-4">
+              <label htmlFor="text" className="form-label">
+                Recensione
+              </label>
               <textarea
+                id="text"
                 className="form-control"
-                rows="3"
+                rows="4"
+                placeholder="Scrivi il tuo commento..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Scrivi il tuo commento..."
               />
             </div>
 
-            <button className="btn btn-warning w-100 fw-semibold">
+            <button type="submit" className="btn btn-warning w-100 fw-semibold">
               Invia recensione
             </button>
           </form>
