@@ -6,12 +6,10 @@ export default function Header() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (search.trim()) {
-      navigate(`/movies?search=${encodeURIComponent(search.trim())}`);
-      setSearch("");
-    }
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+    navigate(`/movies?search=${encodeURIComponent(value)}`);
   };
 
   return (
@@ -21,15 +19,14 @@ export default function Header() {
       </div>
 
       <div className="header-center">
-        <form className="search-form" onSubmit={handleSubmit}>
+        <form className="search-form" onSubmit={(e) => e.preventDefault()}>
           <input
             type="text"
             placeholder="Cerca film..."
             className="search-input"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={handleChange}
           />
-          <button className="search-button" type="submit">Cerca</button>
         </form>
       </div>
 

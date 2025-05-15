@@ -1,7 +1,18 @@
+/* src/components/ReviewForm.css */
+
+.review-form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .review-form {
+  width: 100%;
+  max-width: 400px;
   background-color: #fdfdfd;
   border: 1px solid #ddd;
   border-radius: 8px;
+  padding: 1rem;
 }
 
 .review-form .form-label {
@@ -12,4 +23,14 @@
 .review-form .form-control,
 .review-form .form-select {
   border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+.review-form .btn {
+  font-size: 0.95rem;
+}
+.review-form .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
 }

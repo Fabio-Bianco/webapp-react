@@ -1,5 +1,5 @@
-// src/pages/MoviesPage.jsx
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import MovieCard from "../components/MovieCard";
 import "../components/MovieCard.css";
@@ -7,6 +7,9 @@ import "../components/MovieCard.css";
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
+  const [searchParams] = useSearchParams();
+
+  const searchQuery = searchParams.get("search")?.toLowerCase() || "";
 
   useEffect(() => {
     axios
@@ -21,6 +24,11 @@ export default function MoviesPage() {
       });
   }, []);
 
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchQuery) ||
+    movie.director.toLowerCase().includes(searchQuery)
+  );
+
   return (
     <div className="container py-4">
       <h2 className="mb-4">🎬 Tutti i film</h2>
@@ -29,9 +37,13 @@ export default function MoviesPage() {
         <div className="alert alert-danger">{error}</div>
       ) : (
         <div className="movie-grid">
-          {movies.map((movie) => (
-            <MovieCard key={movie.id} data={movie} />
-          ))}
+          {filteredMovies.length > 0 ? (
+            filteredMovies.map((movie) => (
+              <MovieCard key={movie.id} data={movie} />
+            ))
+          ) : (
+            <p className="text-muted">Nessun film trovato.</p>
+          )}
         </div>
       )}
     </div>
