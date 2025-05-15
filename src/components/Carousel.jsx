@@ -9,6 +9,7 @@ export default function Carousel() {
   const [slides, setSlides] = useState([]);
   const [index, setIndex] = useState(0);
 
+  // Carica i film da API
   useEffect(() => {
     axios
       .get("http://localhost:4000/movies")
@@ -18,8 +19,16 @@ export default function Carousel() {
         );
         setSlides(moviesWithImages);
       })
-      .catch((err) => console.error("Errore caricamento carosello:", err));
+      .catch((err) => console.error("Errore carosello:", err));
   }, []);
+
+  // Slide automatico ogni 3 secondi
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [slides]);
 
   const next = () => setIndex((i) => (i + 1) % slides.length);
   const prev = () => setIndex((i) => (i === 0 ? slides.length - 1 : i - 1));
@@ -32,10 +41,9 @@ export default function Carousel() {
 
   return (
     <div className="carousel-container">
-      <div
-        className="carousel-slide"
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      >
+      <div className="carousel-slide">
+        <img src={imageUrl} alt={movie.title} className="carousel-img" />
+
         <div className="carousel-overlay">
           <h2>{movie.title}</h2>
           <p>"Un capolavoro assoluto, da non perdere!"</p>
@@ -49,8 +57,13 @@ export default function Carousel() {
             ))}
           </div>
         </div>
-        <button className="carousel-prev" onClick={prev}>◀</button>
-        <button className="carousel-next" onClick={next}>▶</button>
+
+        <button className="carousel-prev" onClick={prev}>
+          ◀
+        </button>
+        <button className="carousel-next" onClick={next}>
+          ▶
+        </button>
       </div>
     </div>
   );
