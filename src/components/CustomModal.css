@@ -1,0 +1,20 @@
+/* CustomModal.css - Modal stile IMDb */
+
+.custom-modal .modal-content {
+  background-color: #121212; /* sfondo nero */
+  border: 2px solid #ffcc00; /* bordo giallo IMDb */
+  border-radius: 10px;
+  color: #f5f5f5;
+}
+
+.custom-modal .modal-title {
+  font-size: 1.25rem;
+  color: #ffcc00;
+}
+
+.custom-modal .btn-close-white {
+  filter: invert(1); /* rende la X bianca */
+}
+.custom-modal .modal-header {
+  border-bottom: 1px solid #444; /* bordo grigio scuro */
+}

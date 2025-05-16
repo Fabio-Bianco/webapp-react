@@ -44,7 +44,7 @@ export default function MovieCard({ data }) {
 
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">{title}</h5>
-          <p className="card-subtitle text-muted mb-2">
+          <p className="card-subtitle mb-2">
             🎬 {director} | {genre || "N/D"} | {release_year || "N/D"}
           </p>
 

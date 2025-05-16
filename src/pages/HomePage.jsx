@@ -3,9 +3,9 @@ import Carousel from "../components/Carousel";
 export default function HomePage() {
   return (
     <div className="container py-4">
+      <h2 className="mb-4">In evidenza</h2>
       <Carousel />
-      <h2 className="mb-4">🎬 Film in evidenza</h2>
-      <p className="text-muted">Contenuti in arrivo...</p>
+      <p className="">Contenuti in arrivo...</p>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 .header {
-  background-color: #facc15; /* giallo caldo */
+  background-color: #facc15; /* IMDb yellow */
   border-bottom: 1px solid #d1d5db;
   padding: 0.75rem 1.5rem;
   display: flex;
@@ -26,30 +26,53 @@
   justify-content: center;
 }
 
-.search-form {
+/* ✅ Wrapper completo della barra di ricerca */
+.search-box {
   display: flex;
-  gap: 0.5rem;
-}
-
-.search-input {
-  padding: 0.5rem;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  min-width: 200px;
+  width: 100%;
+  max-width: 600px;
+  height: 40px;
+  overflow: hidden;
 }
 
-.search-button {
-  background-color: #2563eb;
-  color: white;
+/* Select di sinistra ("Tutto") */
+.search-select {
+  appearance: none;
+  background-color: #e5e5e5;
   border: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
+  padding: 0 0.75rem;
+  height: 100%;
+  font-weight: 600;
+  color: #000;
+  border-right: 1px solid #ccc;
   cursor: pointer;
 }
 
-.search-button:hover {
-  background-color: #1d4ed8;
+/* Input centrale */
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  color: #000;
 }
+
+/* Bottone lente */
+.search-icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #444;
+  padding: 0 0.75rem;
+}
+
 
 .nav-link {
   color: #2563eb;

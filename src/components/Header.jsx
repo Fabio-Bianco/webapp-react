@@ -26,14 +26,30 @@ export default function Header() {
 
       <div className="header-center">
         <form className="search-form" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            placeholder="Cerca film..."
-            className="search-input"
-            value={search}
-            onChange={handleChange}
-          />
+          <div className="search-box">
+            <select className="search-select">
+              <option value="all">icon</option>
+              <option value="title">Film</option>
+              <option value="director">Registi</option>
+              <option value="director">Attori</option>
+              {/* puoi aggiungere altre categorie */}
+            </select>
+
+            <input
+              type="text"
+              placeholder="Cerca su Movies"
+              className="search-input"
+              value={search}
+              onChange={handleChange}
+            />
+            <button type="button" className="search-icon-btn">
+              <span className="search-icon">icon</span>
+            </button>
+          </div>
         </form>
+
+
+
       </div>
 
       <nav className="header-right nav">

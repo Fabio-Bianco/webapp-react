@@ -6,6 +6,7 @@ import AddMovieForm from "../components/AddMovieForm";
 import "../components/MovieCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
@@ -46,14 +47,14 @@ export default function MoviesPage() {
 
   return (
     <div className="container py-4">
-      <h2 className="mb-4">🎬 Tutti i film</h2>
+      <h2 className="mb-4"> Movies</h2>
 
       {/* Bottone per aprire la modale */}
       <button
-        className="btn btn-outline-primary mb-3"
+        className="btn btn-outline-warning mb-3"
         onClick={() => setShowModal(true)}
       >
-        ➕ Aggiungi nuovo film
+         Aggiungi nuovo film
       </button>
 
       {/* ✅ Messaggio di successo */}

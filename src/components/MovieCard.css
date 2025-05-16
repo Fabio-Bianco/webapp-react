@@ -44,19 +44,22 @@
 .movie-card .card-title {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
+  color: #ffffff; /* bianco pieno */
 }
 
 .movie-card .card-subtitle {
   font-size: 0.85rem;
-  color: #bbb;
+  color: #ffcc00; /* giallo IMDb visibile su sfondo nero */
+  font-weight: 500;
 }
+
 
 .movie-card .card-text {
   font-size: 0.9rem;
-  color: #ccc;
-  flex-grow: 1;
-  margin-bottom: 1rem;
+  color: #f5f5f5;
 }
+
+
 
 /* Bottone stile Netflix */
 .movie-card .btn {

@@ -52,8 +52,18 @@ export default function MovieDetail() {
       <p><strong>Anno:</strong> {movie.release_year}</p>
       <p>{movie.abstract}</p>
 
-      <hr />
-      <h4>Recensioni</h4>
+      <div className="d-flex justify-content-between align-items-center mt-4 mb-3">
+        <h4 className="mb-0">Recensioni</h4>
+        {!showForm && (
+          <button
+            className="btn btn-warning fw-semibold"
+            onClick={() => setShowForm(true)}
+          >
+            ➕ Aggiungi recensione
+          </button>
+        )}
+      </div>
+
 
       {movie.reviews.length > 0 ? (
         movie.reviews.map((review) => (
@@ -75,14 +85,6 @@ export default function MovieDetail() {
         <p>Nessuna recensione ancora.</p>
       )}
 
-      {!showForm && (
-        <button
-          className="btn btn-primary mt-3"
-          onClick={() => setShowForm(true)}
-        >
-          Aggiungi recensione
-        </button>
-      )}
 
       {showForm && (
         <ReviewForm movieId={id} onReviewAdded={handleReviewAdded} />
