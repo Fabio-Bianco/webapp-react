@@ -1,4 +1,3 @@
-// src/components/MovieCard.jsx
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +7,7 @@ import "./MovieCard.css";
 export default function MovieCard({ data }) {
   const navigate = useNavigate();
   const {
-    id,
+    slug,
     title,
     director,
     genre,
@@ -26,7 +25,7 @@ export default function MovieCard({ data }) {
   const fullStars = Math.round(vote);
 
   const handleClick = () => {
-    navigate(`/movies/${id}`);
+    navigate(`/movies/${slug}`); // ✅ usa slug
   };
 
   return (
@@ -43,8 +42,8 @@ export default function MovieCard({ data }) {
         />
 
         <div className="card-body d-flex flex-column">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-subtitle mb-2">
+          <h5 className="card-title" style={{ color: "#fff" }}>{title}</h5>
+          <p className="card-subtitle mb-2" style={{ color: "#ffcc00" }}>
             🎬 {director} | {genre || "N/D"} | {release_year || "N/D"}
           </p>
 
